@@ -14,8 +14,6 @@ public class NYPizzaStore extends PizzaStore{
 			return new NYStyleCheesePizza();
 		}else if("clam".equals(type)){
 			return new NYStyleClamPizza();
-		}else if("veggie".equals(type)){
-			return new NYStyleVeggiePizza();
 		}
 		return null;
 	}
