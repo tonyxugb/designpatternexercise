@@ -17,5 +17,4 @@ public class NYPizzaIngredientFactory implements PizzaIngredientFactory{
 	public Cheese createCheese() {
 		return new ReggianoCheese(); //巴马干酪
 	}
-
 }
