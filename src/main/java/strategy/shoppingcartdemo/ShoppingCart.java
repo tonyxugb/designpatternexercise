@@ -5,7 +5,6 @@ import java.util.List;
 
 public class ShoppingCart {
 
-	// List of items
 	List<Item> items;
 
 	public ShoppingCart() {

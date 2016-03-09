@@ -11,9 +11,8 @@ import java.util.Observable;
  * @Since:2015年9月10日
  */
 public class WeatherData extends Observable{
+	
 	private float temperature; //温度
-	private float humidity; //湿度
-	private float pressure; //气压
 	
 	public void measurementsChanged(){
 		/**
@@ -31,22 +30,12 @@ public class WeatherData extends Observable{
 		notifyObservers();
 	}
 	
-	public void setMeasurements(float temperature,float humidity,float pressure){
+	public void setMeasurements(float temperature){
 		this.temperature = temperature;
-		this.humidity = humidity;
-		this.pressure = pressure;
 		measurementsChanged();
 	}
 
 	public float getTemperature() {
 		return temperature;
-	}
-
-	public float getHumidity() {
-		return humidity;
-	}
-
-	public float getPressure() {
-		return pressure;
 	}
 }

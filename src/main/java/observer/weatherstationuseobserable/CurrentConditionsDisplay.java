@@ -3,18 +3,14 @@ package observer.weatherstationuseobserable;
 import java.util.Observable;
 import java.util.Observer;
 
-import observer.weatherstationcustom.DisplayElement;
-
 /**
  *@Description:Observer也是Java内置的接口，每个观察者类都要实现该接口
  *@Author:tony
  *@Since:2015年9月10日
  */
-public class CurrentConditionsDisplay implements Observer,DisplayElement{
+public class CurrentConditionsDisplay implements Observer{
 
-	Observable observable;
-	private float temperature;
-	private float humidity;
+	Observable observable; //被观察的主题
 	
 	public CurrentConditionsDisplay(Observable observable){
 		this.observable = observable;
@@ -30,21 +26,12 @@ public class CurrentConditionsDisplay implements Observer,DisplayElement{
 	public void update(Observable o, Object arg) {
 		if(o instanceof WeatherData){
 			WeatherData weatherData = (WeatherData)o;
-			/**
-			 * 观察者拉(pull)数据
-			 */
-			this.temperature = weatherData.getTemperature();
-			this.humidity = weatherData.getHumidity();
-			/**
-			 * 布告板上展示数据
-			 */
-			display();
+			
+			//观察者拉(pull)数据
+			float temperature = weatherData.getTemperature();
+			
+			//布告板上展示数据
+			System.out.println("实时气温:"+temperature+"摄氏度");	
 		}
-	}
-
-	@Override
-	public void display() {
-		System.out.println("Current Conditions:"+temperature+"F degrees"
-				+ " and "+humidity+"% humidity");		
 	}
 }
