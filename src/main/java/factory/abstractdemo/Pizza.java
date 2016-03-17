@@ -1,11 +1,24 @@
 package factory.abstractdemo;
 
-public abstract class Pizza {
+
+
+public class Pizza{
+
+	private Dough dough;
+	private Sauce sauce;
+	private Cheese cheese;
 	
-	//每个Pizza都持有一组在准备时会用到的原料
-	Dough dough;
-	Sauce sauce;
-	Cheese cheese;
-	
-	abstract void prepare(); //准备原料
+	private PizzaIngredientFactory factory;
+
+	public void setFactory(PizzaIngredientFactory factory) {
+		this.factory = factory;
+	}
+
+	public void prepare(){
+		this.dough = this.factory.createDough();
+		this.sauce = this.factory.createSauce();
+		this.cheese = this.factory.createCheese();
+		
+		System.out.println("原料准备完毕");
+	}
 }
